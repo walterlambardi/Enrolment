@@ -16,7 +16,7 @@ export default StyleSheet.create({
 
   input: {
     flex: 1,
-    color: colors.inputText,
+    color: colors.placeholder,
     fontSize: 14 * metrics.scaleCoefficient,
     fontWeight: '700',
     fontFamily: fonts.AVENIR_REGULAR,

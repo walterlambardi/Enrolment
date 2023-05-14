@@ -12,7 +12,7 @@ export default StyleSheet.create({
   buttonText: {
     color: colors.white,
     fontSize: 12 * metrics.scaleCoefficient,
-    lineHeight: 14 * metrics.scaleCoefficient,
+    lineHeight: 16 * metrics.scaleCoefficient,
     fontWeight: 'bold',
     textAlign: 'center',
     textTransform: 'uppercase',
