@@ -33,7 +33,9 @@ const CustomButton = ({
       style={buttonStyle}
       onPress={onPress}
       disabled={disabled}
-      testID="custom-button">
+      testID="custom-button"
+      accessible={true}
+      accessibilityLabel={title}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );

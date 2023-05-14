@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import metrics from '../../themes/metrics';
-import colors from '../../themes/colors';
+import { fonts, metrics, colors } from '../../themes';
 
 export default StyleSheet.create({
   button: {
@@ -18,6 +17,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     textTransform: 'uppercase',
     letterSpacing: 1 * metrics.scaleCoefficient,
+    fontFamily: fonts.AVENIR_REGULAR,
   },
   disabledButton: {
     opacity: 0.5,

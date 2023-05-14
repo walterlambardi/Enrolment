@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, ImageBackground, StatusBar, Text } from 'react-native';
 import styles from './customHeader.style';
-import images from '../../themes/images';
-import metrics from '../../themes/metrics';
+import { metrics, images } from '../../themes';
 
 interface CustomHeaderProps {
   title: string;
@@ -11,9 +10,7 @@ interface CustomHeaderProps {
 
 const CustomHeader = ({ title, subtitle }: CustomHeaderProps) => {
   const hasSubtitle = Boolean(subtitle);
-  const headerHeight =
-    (hasSubtitle ? 150 : 80) * metrics.scaleCoefficient +
-    metrics.getStatusBarHeight();
+  const headerHeight = (hasSubtitle ? 150 : 80) * metrics.scaleCoefficient;
 
   return (
     <View style={{ height: headerHeight }}>

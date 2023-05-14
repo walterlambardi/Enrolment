@@ -1,5 +1,5 @@
 import { Dimensions, StatusBar } from 'react-native';
-import { isAndroid, isiOS, isiPhoneX } from '../utils/platformUtils';
+import { isiOS, isiPhoneX } from '../utils/platformUtils';
 
 const { height, width } = Dimensions.get('window');
 
@@ -37,12 +37,6 @@ export const getStatusBarHeight = () => {
   return StatusBar.currentHeight || 0;
 };
 
-const topPadding = isiPhoneX ? 40 : getStatusBarHeight();
-const bottomPadding = isiPhoneX ? 25 : 0;
-
-const tabBarHeight: number = 100 * scaleCoefficient + (isiPhoneX ? 20 : 10);
-const eventTabsHeight: number = 60 * scaleCoefficient;
-
 const vertical = {
   spacing: {
     xxs: getVerticalValue(0.25),
@@ -54,12 +48,6 @@ const vertical = {
   },
 };
 
-const icon = {
-  s: scale(50),
-  m: scale(70),
-  l: scale(90),
-};
-
 export default {
   screenHeight: height,
   screenWidth: width,
@@ -68,12 +56,6 @@ export default {
   vertical,
   scale,
   scaleY,
-  topPadding,
-  bottomPadding,
-  tabBarHeight,
-  eventTabsHeight,
-  icon,
   getStatusBarHeight,
-  modalTopPadding: isAndroid ? 0 : getStatusBarHeight() + 32 * scaleCoefficient,
   heightWithoutStatusBar: height - getStatusBarHeight(),
 };
