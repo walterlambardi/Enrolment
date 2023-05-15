@@ -20,10 +20,10 @@ const CustomButton = ({
 }: Props) => {
   const buttonStyle = useMemo(
     () => [
-      style,
       styles.button,
       { backgroundColor: color },
       disabled && styles.disabledButton,
+      style,
     ],
     [style, color, disabled],
   );

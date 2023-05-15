@@ -26,3 +26,6 @@
 - react-hook-form
 - yup
 - @hookform/resolvers
+
+### Linear Gradient
+- react-native-linear-gradient

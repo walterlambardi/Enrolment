@@ -17,7 +17,7 @@ export default StyleSheet.create({
     fontSize: 20 * metrics.scaleCoefficient,
     lineHeight: 23 * metrics.scaleCoefficient,
     fontFamily: fonts.AVENIR_REGULAR,
-    fontWeight: 'bold',
+    fontWeight: '900',
   },
   subtitle: {
     color: colors.white,
@@ -26,5 +26,6 @@ export default StyleSheet.create({
     lineHeight: 18 * metrics.scaleCoefficient,
     paddingTop: 16 * metrics.scaleCoefficient,
     fontFamily: fonts.AVENIR_REGULAR,
+    fontWeight: '600',
   },
 });

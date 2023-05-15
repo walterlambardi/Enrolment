@@ -7,4 +7,7 @@ export default {
   lightGray: '#D2D2D2', //icon and border input
   placeholder: '#D8D8D8',
   gray: '#999999',
+  bluePurple: '#3B2F71',
+  lightPurple: '#8D24C4',
+  darkPurple: '#500F71',
 };

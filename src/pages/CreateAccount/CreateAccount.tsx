@@ -1,5 +1,5 @@
 import { Text, TextInput, View } from 'react-native';
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParams } from '../../navigation';
 import { Pages } from '../../enums/Pages';
@@ -12,6 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { formDataSchema } from '../../utils/yupSchema';
 import { Email, Name, Password } from '../../themes/svgs';
 import { getLocalizedString } from '../../utils/localizedUtils';
+import { submitFormData } from '../../api/apiService';
 
 const localizedCopy = (value: string) =>
   getLocalizedString(`${Pages.CREATE_ACCOUNT}.${value}`);
@@ -21,7 +22,7 @@ export type CreateAccountProps = NativeStackScreenProps<
   Pages.CREATE_ACCOUNT
 >;
 
-interface FormData {
+export interface FormData {
   firstName: string;
   lastName: string;
   email: string;
@@ -37,6 +38,8 @@ const CreateAccount = ({ navigation }: CreateAccountProps) => {
     mode: 'onBlur',
     resolver: yupResolver(formDataSchema),
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const firstNameRef = useRef<TextInput>(null);
   const lastNameRef = useRef<TextInput>(null);
@@ -57,9 +60,21 @@ const CreateAccount = ({ navigation }: CreateAccountProps) => {
     [navigation],
   );
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    goToLinkYourBank();
+  const onSubmit = async (data: FormData) => {
+    if (isSubmitting) {
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const response = await submitFormData(data);
+      if (response?.status === '200') {
+        goToLinkYourBank();
+      }
+    } catch (error) {
+      // Handle error
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
